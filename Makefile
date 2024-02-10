@@ -1,5 +1,7 @@
 VERSION=0.7
+WEB=dmark.local.meyn.fr
 .PHONY: serve
+
 
 install:
 	git clone https://github.com/userjack6880/Open-DMARC-Analyzer.git code
@@ -13,12 +15,13 @@ serve:
 	--net mynet \
 	-l 'traefik.enable=true' \
 	-l 'traefik.http.routers.dmark.entrypoints=web,websecure' \
-	-l 'traefik.http.routers.dmark.rule=Host("dmark.local.meyn.fr")' \
+	-l 'traefik.http.routers.dmark.rule=Host("$(WEB)")' \
 	-l 'traefik.http.routers.dmark.tls=true' \
 	-l 'traefik.http.routers.dmark.tls.certresolver=lets-encrypt' \
 	-l 'traefik.port=80' \
 	--name dmark dmark:$(VERSION)
 	docker exec dmark /opt/parser/dmarcts-report-parser.pl -i
+
 
 build:
 	docker build -t dmark:$(VERSION) .
