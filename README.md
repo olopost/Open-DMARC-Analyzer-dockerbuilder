@@ -79,6 +79,18 @@ And launch the image
 make serve
 ```
 
+Maybe to finish the install, type the install page : https://dmark.local.meyn.fr/install.php
+
+and access to the website : https://dmark.local.meyn.fr/install.php
+
+>[!IMPORTANT]
+>The email inbox linked to the config must have the dmarc email in `dmarc` folder. You can launch the following command to force update
+>```sh
+># force the imap folder dmarc processing
+>make force-update
+>```
+
+
 ## Authors
 
 * **Samuel  M - Olopost** - *Initial work* - [Site](https://www.meyn.fr)

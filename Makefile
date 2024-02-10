@@ -22,6 +22,8 @@ serve:
 	--name dmark dmark:$(VERSION)
 	docker exec dmark /opt/parser/dmarcts-report-parser.pl -i
 
+force-update:
+	docker exec dmark /opt/parser/dmarcts-report-parser.pl -i
 
 build:
 	docker build -t dmark:$(VERSION) .
